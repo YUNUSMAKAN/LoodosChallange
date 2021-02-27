@@ -81,6 +81,7 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 5.2)
   - Firebase/Analytics
+  - Firebase/Core
   - Firebase/RemoteConfig
   - Kingfisher (~> 5.0)
 
@@ -117,6 +118,6 @@ SPEC CHECKSUMS:
   nanopb: 59317e09cf1f1a0af72f12af412d54edf52603fc
   PromisesObjC: b14b1c6b68e306650688599de8a45e49fae81151
 
-PODFILE CHECKSUM: 4bd67b62215315ec865b478a97cf6c40c941d0d7
+PODFILE CHECKSUM: 39234418cbfc722370591c86ef6b4e1e37316157
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1

@@ -10,6 +10,7 @@ target 'LoodosChallange' do
 
    pod 'Alamofire', '~> 5.2'
    pod 'Kingfisher', '~> 5.0'
+   pod 'Firebase/Core'
    pod 'Firebase/Analytics'
    pod 'Firebase/RemoteConfig'
 
