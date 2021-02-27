@@ -15,11 +15,17 @@
 		6C454BAD25EA49C800823DEE /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C454BAC25EA49C800823DEE /* Constant.swift */; };
 		6CB56D0025E99AEF008CB50B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB56CFF25E99AEF008CB50B /* AppDelegate.swift */; };
 		6CB56D0225E99AEF008CB50B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB56D0125E99AEF008CB50B /* SceneDelegate.swift */; };
-		6CB56D0425E99AEF008CB50B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB56D0325E99AEF008CB50B /* ViewController.swift */; };
+		6CB56D0425E99AEF008CB50B /* SplashViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB56D0325E99AEF008CB50B /* SplashViewController.swift */; };
 		6CB56D0725E99AEF008CB50B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB56D0525E99AEF008CB50B /* Main.storyboard */; };
 		6CB56D0925E99AF0008CB50B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6CB56D0825E99AF0008CB50B /* Assets.xcassets */; };
 		6CB56D0C25E99AF0008CB50B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6CB56D0A25E99AF0008CB50B /* LaunchScreen.storyboard */; };
 		6CB56D1D25E99CD8008CB50B /* UIStoryboard+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CB56D1C25E99CD8008CB50B /* UIStoryboard+Extension.swift */; };
+		6CC6570025EA5F90001219A0 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC656FF25EA5F90001219A0 /* UIColor+Extension.swift */; };
+		6CC6570325EA60E9001219A0 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6570225EA60E9001219A0 /* UIView+Extension.swift */; };
+		6CC6570625EA705F001219A0 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6CC6570525EA705F001219A0 /* GoogleService-Info.plist */; };
+		6CC6572925EA8E57001219A0 /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6572825EA8E57001219A0 /* SplashViewModel.swift */; };
+		6CC6572C25EA9AA3001219A0 /* BlackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CC6572B25EA9AA3001219A0 /* BlackViewController.swift */; };
+		6CDF322025EA57DC0087F84E /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CDF321F25EA57DC0087F84E /* UILabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,12 +37,18 @@
 		6CB56CFC25E99AEF008CB50B /* LoodosChallange.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LoodosChallange.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6CB56CFF25E99AEF008CB50B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		6CB56D0125E99AEF008CB50B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		6CB56D0325E99AEF008CB50B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		6CB56D0325E99AEF008CB50B /* SplashViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewController.swift; sourceTree = "<group>"; };
 		6CB56D0625E99AEF008CB50B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		6CB56D0825E99AF0008CB50B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		6CB56D0B25E99AF0008CB50B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		6CB56D0D25E99AF0008CB50B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6CB56D1C25E99CD8008CB50B /* UIStoryboard+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStoryboard+Extension.swift"; sourceTree = "<group>"; };
+		6CC656FF25EA5F90001219A0 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		6CC6570225EA60E9001219A0 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		6CC6570525EA705F001219A0 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		6CC6572825EA8E57001219A0 /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		6CC6572B25EA9AA3001219A0 /* BlackViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackViewController.swift; sourceTree = "<group>"; };
+		6CDF321F25EA57DC0087F84E /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		C6C69816CA9745F35CC62BEF /* Pods-LoodosChallange.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoodosChallange.release.xcconfig"; path = "Target Support Files/Pods-LoodosChallange/Pods-LoodosChallange.release.xcconfig"; sourceTree = "<group>"; };
 		C80D8A6110B103A99AF509E4 /* Pods-LoodosChallange.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LoodosChallange.debug.xcconfig"; path = "Target Support Files/Pods-LoodosChallange/Pods-LoodosChallange.debug.xcconfig"; sourceTree = "<group>"; };
 		D2BA2543D5AA919F393B359E /* Pods_LoodosChallange.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LoodosChallange.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -100,6 +112,7 @@
 		6CB56CFE25E99AEF008CB50B /* LoodosChallange */ = {
 			isa = PBXGroup;
 			children = (
+				6CC6570525EA705F001219A0 /* GoogleService-Info.plist */,
 				6C454BA825EA489400823DEE /* Constant */,
 				6CB56D1B25E99CBC008CB50B /* Extension */,
 				6CB56D1725E99B91008CB50B /* Models */,
@@ -166,8 +179,8 @@
 		6CB56D1A25E99BDD008CB50B /* Screens */ = {
 			isa = PBXGroup;
 			children = (
+				6CDF321D25EA56970087F84E /* Splash */,
 				6CB56D0A25E99AF0008CB50B /* LaunchScreen.storyboard */,
-				6CB56D0325E99AEF008CB50B /* ViewController.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -185,6 +198,9 @@
 			isa = PBXGroup;
 			children = (
 				6CB56D1C25E99CD8008CB50B /* UIStoryboard+Extension.swift */,
+				6CDF321F25EA57DC0087F84E /* UILabel+Extension.swift */,
+				6CC656FF25EA5F90001219A0 /* UIColor+Extension.swift */,
+				6CC6570225EA60E9001219A0 /* UIView+Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -194,6 +210,16 @@
 			children = (
 			);
 			path = Foundation;
+			sourceTree = "<group>";
+		};
+		6CDF321D25EA56970087F84E /* Splash */ = {
+			isa = PBXGroup;
+			children = (
+				6CB56D0325E99AEF008CB50B /* SplashViewController.swift */,
+				6CC6572825EA8E57001219A0 /* SplashViewModel.swift */,
+				6CC6572B25EA9AA3001219A0 /* BlackViewController.swift */,
+			);
+			path = Splash;
 			sourceTree = "<group>";
 		};
 		9186A5CE07CA4EC6C098C090 /* Frameworks */ = {
@@ -273,6 +299,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6CB56D0C25E99AF0008CB50B /* LaunchScreen.storyboard in Resources */,
+				6CC6570625EA705F001219A0 /* GoogleService-Info.plist in Resources */,
 				6CB56D0925E99AF0008CB50B /* Assets.xcassets in Resources */,
 				6CB56D0725E99AEF008CB50B /* Main.storyboard in Resources */,
 			);
@@ -327,12 +354,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				6CB56D0425E99AEF008CB50B /* ViewController.swift in Sources */,
+				6CB56D0425E99AEF008CB50B /* SplashViewController.swift in Sources */,
 				6CB56D0025E99AEF008CB50B /* AppDelegate.swift in Sources */,
+				6CDF322025EA57DC0087F84E /* UILabel+Extension.swift in Sources */,
+				6CC6570025EA5F90001219A0 /* UIColor+Extension.swift in Sources */,
 				6C454BAD25EA49C800823DEE /* Constant.swift in Sources */,
 				6CB56D1D25E99CD8008CB50B /* UIStoryboard+Extension.swift in Sources */,
+				6CC6570325EA60E9001219A0 /* UIView+Extension.swift in Sources */,
 				6C454B9E25EA3FEF00823DEE /* RequestModel.swift in Sources */,
+				6CC6572925EA8E57001219A0 /* SplashViewModel.swift in Sources */,
 				6CB56D0225E99AEF008CB50B /* SceneDelegate.swift in Sources */,
+				6CC6572C25EA9AA3001219A0 /* BlackViewController.swift in Sources */,
 				6C454BA425EA401600823DEE /* Services.swift in Sources */,
 				6C454B9B25EA3F0C00823DEE /* ServiceManager.swift in Sources */,
 				6C454BAA25EA493400823DEE /* ServicesConstant.swift in Sources */,
