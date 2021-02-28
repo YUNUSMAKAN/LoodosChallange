@@ -9,16 +9,19 @@ import Foundation
 import Network
 import FirebaseRemoteConfig
 
-
 class SplashViewModel {
     
     //MARK:Properties
     private let remoteConfig = RemoteConfig.remoteConfig()
     
     //MARK:Funstions
+    func fetchValuesIfNetworkAvailable(completion: @escaping (String?) -> ()) {
+        monitorNetwork { (networkStatus) in
+            networkStatus ? self.fetchValues(completion: completion) : completion(nil)
+        }
+    }
     
-    func fetchValues(completion: @escaping (String) -> ()){
-        
+    private func fetchValues(completion: @escaping (String) -> ()) {
         let settings = RemoteConfigSettings()
         settings.minimumFetchInterval = 0
         remoteConfig.configSettings = settings
@@ -30,26 +33,23 @@ class SplashViewModel {
                     completion(title)
                     return
                 }
-            }else {
+            } else {
                 print("Wrong")
             }
         }
     }
     
-    func monitorNetwork(completion: @escaping (Bool) -> ()) {
+    private func monitorNetwork(completion: @escaping (Bool) -> ()) {
         let monitor = NWPathMonitor()
         monitor.pathUpdateHandler = { path in
             if path.status == .satisfied {
                 completion(true)
                 return
-                
-            }else {
+            } else {
                 completion(false)
-                
             }
         }
         let queue = DispatchQueue(label: "Network")
         monitor.start(queue: queue)
     }
-    
 }

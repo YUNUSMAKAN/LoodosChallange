@@ -28,9 +28,4 @@ class HomeViewModel {
             }
         }
     }
-    
-    func returnHomeSearchFilms() -> [HomeSearchList] {
-        return self.homeSearchFilmsList
-    }
-    
 }

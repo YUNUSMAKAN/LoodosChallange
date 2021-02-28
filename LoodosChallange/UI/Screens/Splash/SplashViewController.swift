@@ -6,14 +6,12 @@
 //
 
 import UIKit
-import Network
-import FirebaseRemoteConfig
-
 
 class SplashViewController: UIViewController {
     
     //MARK:Properties
-   private let viewModel = SplashViewModel()
+    
+    private let viewModel = SplashViewModel()
     
     //MARK:Outlets
     
@@ -21,39 +19,44 @@ class SplashViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        initData()
-
+    
+       fetchValuesIfPossible()
     }
 }
 
-//MARK:-Set UI!
 extension SplashViewController {
     
-    func initData(){
-        
-        viewModel.monitorNetwork { (state) in
-            if state == true {
-                self.viewModel.fetchValues { (title) in
-                    DispatchQueue.main.async {
-                        self.titleLabel.text = title
-                        self.titleLabel.makeOutLine(oulineColor: .blue, foregroundColor: .black)
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-                            let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "HomeNavVC") as! UINavigationController
-                            vc.modalPresentationStyle = .fullScreen
-                            self.show(vc, sender: nil)
-                            
-                        }
-                    }
-                }
-                
-            }else {
-                DispatchQueue.main.async {
-                    let alertView = UIAlertController(title: "WARNING!!!", message: "NO INTERNET", preferredStyle: .alert)
-                    alertView.addAction(.init(title: "OK", style: .default, handler: nil))
-                    self.present(alertView, animated: true, completion: nil)
-                }
+    private func fetchValuesIfPossible() {
+        viewModel.fetchValuesIfNetworkAvailable { (title) in
+            if let title = title {
+                self.updateLabelText(text: title)
+                self.presentHomeViewControllerAfterThreeSeconds()
+            } else {
+                self.showAlert(title: "WARNING!", description: "NO INTERNET!")
             }
+        }
+    }
+    
+    private func updateLabelText(text: String) {
+        DispatchQueue.main.async {
+            self.titleLabel.text = text
+            self.titleLabel.makeOutLine(oulineColor: .blue, foregroundColor: .black)
+        }
+    }
+    
+    private func showAlert(title: String, description: String) {
+        DispatchQueue.main.async {
+            let alertView = UIAlertController(title: title, message: description, preferredStyle: .alert)
+            alertView.addAction(.init(title: "OK", style: .default, handler: nil))
+            self.present(alertView, animated: true, completion: nil)
+        }
+    }
+    
+    private func presentHomeViewControllerAfterThreeSeconds() {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "HomeNavVC") as! UINavigationController
+            vc.modalPresentationStyle = .fullScreen
+            self.show(vc, sender: nil)
         }
     }
 }

@@ -18,6 +18,5 @@ extension UILabel {
         ] as [NSAttributedString.Key : Any]
         self.attributedText = NSMutableAttributedString(string: self.text ?? "", attributes: strokeTextAttributes)
     }
-    
 }
 

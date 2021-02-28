@@ -11,9 +11,7 @@ class HomeViewController: UIViewController {
     
     //MARK: Properties
     var viewModel = HomeViewModel()
-    var homeSearchFilms : [HomeSearchList] = []
     var writeText: String = ""
-    var searchActive : Bool = false
 
     //MARK:Outlets
     
@@ -23,34 +21,41 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.searchBar.placeholder = " Search to films... "
-        self.searchBar.showsCancelButton = false
-        searchFilms(title: "")
+        setSearchBar()
         setTableView()
     }
-    
 }
-//MARK:Init Service
+
 extension HomeViewController {
     
     func searchFilms(title: String) {
-        
+        LoadingView.shared.show()
         viewModel.homeSearchFilmsList(title: title) { [weak self] in
             guard let self = self else {return}
-            
-            self.homeSearchFilms = self.viewModel.returnHomeSearchFilms()
             self.tableView.reloadData()
-            
-            if self.homeSearchFilms.count < 1 {
-                let alert = UIAlertController(title: "ERROR", message: "No Films!", preferredStyle: .alert)
-                
-                alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
-                    self.searchBar.text = ""
-                }))
-                
-                self.present(alert, animated: true, completion: nil)
+            LoadingView.shared.hide()
+            if self.viewModel.homeSearchFilmsList.count < 1 {
+                self.showAlert(title: "ERROR!", description: "NO MOVIE!")
             }
         }
+    }
+    
+    private func showAlert(title: String, description: String) {
+        DispatchQueue.main.async {
+            let alertView = UIAlertController(title: title, message: description, preferredStyle: .alert)
+            alertView.addAction(UIAlertAction(title: "OK", style: .default, handler: { (action) in
+                self.searchBar.text = ""
+            }))
+            self.present(alertView, animated: true, completion: nil)
+        }
+    }
+    
+    private func showMovieDetail(movieId: String) {
+        
+        let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailViewController
+        vc.viewModel.selectedFilmId = movieId
+        LoadingView.shared.show()
+        self.show(vc, sender: nil)
     }
 }
 
@@ -58,15 +63,12 @@ extension HomeViewController {
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     private func setTableView(){
-        
         tableView.delegate = self
         tableView.dataSource = self
-        searchBar.delegate = self
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        let searchFilms = homeSearchFilms[indexPath.row]
+        let searchFilms = viewModel.homeSearchFilmsList[indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: "HomeCell", for: indexPath) as! HomeTableViewCell
         cell.filmNameLabel.text = "Name: \(searchFilms.title ?? "")"
         cell.filmYearLabel.text = "Year: \(searchFilms.year ?? "")"
@@ -74,32 +76,32 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return homeSearchFilms.count
+        return viewModel.homeSearchFilmsList.count
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let chooseFilmId = homeSearchFilms[indexPath.row]
-        let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailViewController
-        vc.selectedFilmId = chooseFilmId.imdbID!
-        self.navigationController?.pushViewController(vc, animated: true)
+        guard let chooseFilmId = viewModel.homeSearchFilmsList[indexPath.row].imdbID else { return }
+        showMovieDetail(movieId: chooseFilmId)
     }
 }
 
 //MARK:UISearchBarDelegate
 
 extension HomeViewController: UISearchBarDelegate {
+    private func setSearchBar() {
+        searchBar.delegate = self
+        searchBar.placeholder = " Search to movies... "
+        searchBar.showsCancelButton = false
+    }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
-        
         self.writeText = searchText
         NSObject.cancelPreviousPerformRequests(withTarget: self, selector: #selector(self.searchText), object: nil)
         self.perform(#selector(self.searchText), with: nil, afterDelay: 0.5)
     }
     
-    @objc func searchText() {
+    @objc private func searchText(text: String) {
         if self.writeText.count > 2 {
-            homeSearchFilms = []
-            tableView.reloadData()
             searchFilms(title: self.writeText)
         }
     }
