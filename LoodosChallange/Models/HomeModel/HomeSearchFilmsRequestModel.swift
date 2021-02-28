@@ -34,7 +34,5 @@ class HomeSearchFilmsRequestModel: RequestModel {
         return [
         "s" : self.title
         ]
-        
     }
-   
 }
