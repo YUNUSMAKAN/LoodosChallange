@@ -78,7 +78,10 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //TODO
+        let chooseFilmId = homeSearchFilms[indexPath.row]
+        let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "HomeDetailVC") as! HomeDetailViewController
+        vc.selectedFilmId = chooseFilmId.imdbID!
+        self.navigationController?.pushViewController(vc, animated: true)
     }
 }
 

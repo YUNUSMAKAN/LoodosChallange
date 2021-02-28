@@ -9,7 +9,7 @@ import UIKit
 
 extension UIColor {
     
-    static var Turquoise: UIColor {
+    static var turquoise: UIColor {
            return UIColor(named: "Turquoise")! 
        }
 }
