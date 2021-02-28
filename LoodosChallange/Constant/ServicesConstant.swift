@@ -10,9 +10,8 @@ import Foundation
 extension Constant {
     
     class ServicesConstant{
+        
          static let baseUrl = "http://www.omdbapi.com/"
          static let apiKey = "fe6f4082"
-        
     }
-    
 }

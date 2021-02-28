@@ -14,7 +14,8 @@ enum RequestHTTPMethod: String {
 
 class RequestModel: NSObject {
     
-    // MARK: - Properties
+    // MARK: Properties
+    
     var path: String {
         return ""
     }
@@ -25,7 +26,7 @@ class RequestModel: NSObject {
         return [:]
     }
     var method: RequestHTTPMethod {
-        return body.isEmpty ? RequestHTTPMethod.get : RequestHTTPMethod.post
+        return .get
     }
     var body: [String: Any?] {
         return [:]
@@ -45,9 +46,11 @@ extension RequestModel {
         
         for parameter in parameters {
             if let value = parameter.value as? String {
-                endpoint.append("?\(parameter.key)=\(value)")
+                endpoint.append("&\(parameter.key)=\(value)")
             }
         }
+        
+        endpoint = endpoint.replacingOccurrences(of: " ", with: "%20")
         
         var request: URLRequest = URLRequest(url: URL(string: endpoint)!)
         
