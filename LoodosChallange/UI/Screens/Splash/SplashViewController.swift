@@ -38,12 +38,12 @@ extension SplashViewController {
                     DispatchQueue.main.async {
                         self.titleLabel.text = title
                         self.titleLabel.makeOutLine(oulineColor: .blue, foregroundColor: .black)
-//                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-//                            let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "blackVC") as! BlackViewController
-//                            vc.modalPresentationStyle = .fullScreen
-//                            self.show(vc, sender: nil)
-//                            
-//                        }
+                        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                            let vc = UIStoryboard.main.instantiateViewController(withIdentifier: "HomeNavVC") as! UINavigationController
+                            vc.modalPresentationStyle = .fullScreen
+                            self.show(vc, sender: nil)
+                            
+                        }
                     }
                 }
                 
