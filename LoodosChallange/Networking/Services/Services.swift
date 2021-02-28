@@ -17,6 +17,10 @@ public class Services {
             completion(result)
         }
     }
-        
     
+    class func homeSearchFilmsDetail(id: String, completion:@escaping(Swift.Result<HomeSearchFilmDetailResponseModel,AFError>) ->Void) {
+        ServiceManager.shared.sendRequest(request: HomeSearchFilmDetailRequestModel(id: id)) { (result) in
+            completion(result)
+        }
+    }
 }
